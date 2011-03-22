@@ -14,5 +14,8 @@ class RequireRelativeTest < MiniTest::Unit::TestCase
     assert require_relative('test/foo')
   end
 
+  def test_require_relative_subdir
+    assert require_relative('test/subdir/bar')
+  end
 end
 
