@@ -15,10 +15,6 @@ class RequireRelativeTest < MiniTest::Unit::TestCase
     $".pop($".length - @req_length)
   end
 
-  def test_current_dir_not_in_load_path
-    assert_nil $:.detect{|i| i == "."}
-  end
-
   def test_require_relative
     assert require_relative('foo')
   end
