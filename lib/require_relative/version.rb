@@ -1,3 +1,5 @@
+# This is simply the version number. Splitting it off into a different
+# file is generally considered to be good practice. :)
 module RequireRelative
-  VERSION = "0.0.3"
+  VERSION = "1.0.0"
 end
