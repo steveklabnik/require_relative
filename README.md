@@ -35,3 +35,10 @@ Please fork the project, make your commits, push them to GitHub, and
 make a pull request. Patches should have documentation and/or tests.
 Don't be afraid to make a pull request without them, if you don't know
 how to test something we can work on it in the comments. :)
+
+To run the tests, simply "rake test."
+
+To install your development version of the gem, simply "rake install".
+
+To generate the documentation, "rake read," and it'll open in your
+browser.
