@@ -28,7 +28,7 @@ begin
   end
 
   file 'docs/require_relative/version.html' => 'lib/require_relative/version.rb' do |f|
-    mkdir "docs/require_relative"
+    mkdir_p "docs/require_relative"
     cp "docs/lib/require_relative/version.html", "docs/require_relative/version.html"
   end
 
