@@ -30,8 +30,7 @@
         <div class="pilwrap">
           <a class="pilcrow" href="#section-1">&#182;</a>
         </div>
-        <p>encoding: utf-8
-This is the source code for require_relative, a Ruby gem that backports that
+        <p>This is the source code for require_relative, a Ruby gem that backports that
 particular feature to Ruby 1.8.</p>
 
 <p>Please check out the <a href="https://github.com/steveklabnik/require_relative/blob/master/README.md">README</a>
@@ -47,6 +46,18 @@ contribute fixes.</p>
         <div class="pilwrap">
           <a class="pilcrow" href="#section-2">&#182;</a>
         </div>
+        <p>require_relative has no effect on Ruby 1.9 (or other versions that provide Kernel#require_relative
+out of the box)</p>
+      </td>
+      <td class=code>
+        <div class='highlight'><pre><span class="k">unless</span> <span class="no">Object</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">respond_to?</span><span class="p">(</span><span class="ss">:require_relative</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span></pre></div>
+      </td>
+    </tr>
+    <tr id='section-3'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-3">&#182;</a>
+        </div>
         <p>Yep, you&rsquo;re looking at it! This gem is pretty small, and for good reason.
 There&rsquo;s not much to do! We use split to find the filename that we&rsquo;re
 looking to require, raise a LoadError if it&rsquo;s called in a context (like eval)
@@ -60,13 +71,14 @@ the 1.9 syntax, though.</p>
 
       </td>
       <td class=code>
-        <div class='highlight'><pre><span class="k">def</span> <span class="nf">require_relative</span><span class="p">(</span><span class="n">relative_feature</span><span class="p">)</span>
+        <div class='highlight'><pre>  <span class="k">def</span> <span class="nf">require_relative</span><span class="p">(</span><span class="n">relative_feature</span><span class="p">)</span>
 
-  <span class="n">file</span> <span class="o">=</span> <span class="nb">caller</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/:\d/</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">first</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">caller</span><span class="o">.</span><span class="n">first</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/:\d/</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">first</span>
 
-  <span class="k">raise</span> <span class="no">LoadError</span><span class="p">,</span> <span class="s2">&quot;require_relative is called in </span><span class="si">#{</span><span class="vg">$1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span><span class="sr"> /\A\((.*)\)/</span> <span class="o">=~</span> <span class="n">file</span>
+    <span class="k">raise</span> <span class="no">LoadError</span><span class="p">,</span> <span class="s2">&quot;require_relative is called in </span><span class="si">#{</span><span class="vg">$1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span><span class="sr"> /\A\((.*)\)/</span> <span class="o">=~</span> <span class="n">file</span>
 
-  <span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="n">relative_feature</span><span class="p">,</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">require</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="n">relative_feature</span><span class="p">,</span> <span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+  <span class="k">end</span>
 <span class="k">end</span></pre></div>
       </td>
     </tr>
