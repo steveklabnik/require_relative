@@ -6,7 +6,7 @@
 # for more information on how to build your own copy of the gem, as well as
 # contribute fixes.
 
-# require_relative has no effect on Ruby 1.9 (or other versions that provide Kernel#require_relative
+# require\_relative has no effect on Ruby 1.9 (or other versions that provide Kernel#require_relative
 # out of the box)
 unless Object.new.respond_to?(:require_relative, true)
   # Yep, you're looking at it! This gem is pretty small, and for good reason.
