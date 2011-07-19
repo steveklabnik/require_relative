@@ -42,3 +42,8 @@ To install your development version of the gem, simply "rake install".
 
 To generate the documentation, "rake read," and it'll open in your
 browser.
+
+## License
+
+require\_relative is licensed under one of three licenses: WTFPL, BSD,
+or the same license as Ruby. Your choice.
